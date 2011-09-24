@@ -1,0 +1,34 @@
+
+== Coding Style ==
+
+* Le Header de fichier doit contenir :
+  - Nom du fichier
+  - Nom du projet
+  - Nom du créateur
+  - Nom des modificateurs
+
+* Le Header est suivi d'un commentaire expliquant
+  ce qui se passe dans le fichier.
+
+* Les lignes du fichiers ne doivent pas dépasser
+  80 colonnes.
+
+* La signature du module doit être au dessus.
+  Le module rattaché est donc en dessous.
+
+* Il doit y avoir un commentaire au dessus de chaque
+  valeur du module pour expliquer son rôle.
+
+* Si une structure est complexe, faire un module
+  contenant cette structure.
+
+* Une fonction ne doit pas contenir plus d'un
+  filtrage. Appeler des sous-fonctions.
+
+* Au dessus de chaque fonction, mettre un commentaire
+  avec son type.
+
+=== À lire ===
+
+http://caml.inria.fr/resources/doc/guides/guidelines.en.html
+
