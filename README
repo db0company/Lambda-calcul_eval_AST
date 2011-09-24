@@ -1,0 +1,64 @@
+
+=== Modèle de Church ===
+
+L'informatique actuelle est basé sur un modèle abstrait
+qu'on appelle "Machine de Turing", qui correspond à une
+"bande mémoire" sur laquelle on peut effectuer quelques
+actions : se déplacer de gauche à droite, lire et écrire.
+Les machines qu'on utilise sont basées sur un modèle
+RAM, similaire à la machine de Turing mais utilisant des
+registres et des instructions (add, mov, push, ...).
+
+Le modèle de Church propose une alternative fondée sur
+la réecriture. Le λ-calcul applique cette théorie.
+
+=== Le λ-calcul ===
+
+t ::= t t
+      | x
+      | n
+      | λx.t
+      | t+t
+;
+
+ t t  = application de fonction
+ x    = variable
+ n    =	constante (entier)
+ λx.t =	abstraction, = déclaration de fonction
+      	λ indique que c'est une fonction
+	x est le paramètre formel
+	t est une expression : le contenu de la fonction
+
+ Exemple de fonction :
+  * La fonction identité, qui renvoie son paramètre :
+     λx.x
+  * Une fonction qui renvoie son paramètre incrementé de 1 :
+     λx.x+1
+
+=== Définitions ===
+
+* On "applique" des paramètres à une fonction.
+
+* La "β-réduction" correspond à un pas dans la réecriture.
+
+* La "currification" est le phénomène démontrant qu'un
+  appel d'une fonction à plusieurs paramètres est en fait
+  un appel de fonction à un paramètre renvoyant une
+  fonction traitant les autres paramètres.
+  => http://www.iro.umontreal.ca/~csuros/IFT2030/Acetates/fonc-provi.2.pdf
+
+    Exemple :
+    ((λ1.x(λ2y.x+1))1)3
+    ------------------- β[x/1]
+    (λy.1+y)
+
+* Une unité à réduire dans une β-réduction est un "redex".
+
+* Une réduction qui donne la même chose : ΔΔ
+
+    Exemple :
+    (λx.x x)(λx.x x)
+
+
+
+
