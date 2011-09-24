@@ -15,42 +15,31 @@ type e =
   | App		of (e * e)
   | Abs		of (string * e)
 
-type env =
-    ((string * e) list)
+type env = ((string * e) list)
 
 type res =
   | Rconst	of int
   | Closure	of (string * e * env)
   | Error	of string
 
-
 let rec getInEnv x = function
   | []			-> raise (Failure "Undefined identifier")
-  | (str, exp)::rest	-> raise (Failure "Undefined identifier")
-(*      begin
-	if str = x
-	then
-	  exp
-	else
-	  getInEnv x rest
-      end*)
+  | (str, exp)::rest	-> if str = x then exp else getInEnv x rest
 
-let setInEnv env str e =
-  (str, e)::env
+let setInEnv env str e = (str, e)::env
 
-(*let eval_lambda e = 42
+let eval_lambda e =
   let rec aux env = function
     | Const n		-> Rconst n
     | Var x		-> aux env ( get x env)
     | Abs (str, exp)	-> Closure (str, exp, env)
     | App (e1, e2)	-> Error ("Pas fini")
-  in aux [] e*)
+  in aux [] e
 
-(*let main () =
-  begin
-    let x = 42;
-    let e = App (Abs ("x", Var x), Const 2);
+let main () =
+  let x = 42 in
+  let e = App (Abs ("x", Var x), Const 2) in
     eval_lambda e
-  end*)
-(*let _ = main ()*)
+
+let _ = main ()
 
