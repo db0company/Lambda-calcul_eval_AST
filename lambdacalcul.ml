@@ -31,13 +31,13 @@ let setInEnv env str e = (str, e)::env
 let eval_lambda e =
   let rec aux env = function
     | Const n		-> Rconst n
-    | Var x		-> aux env ( get x env)
+    | Var x		-> aux env ( getInEnv x env)
     | Abs (str, exp)	-> Closure (str, exp, env)
     | App (e1, e2)	-> Error ("Pas fini")
   in aux [] e
 
 let main () =
-  let x = 42 in
+  let x = "x" in
   let e = App (Abs ("x", Var x), Const 2) in
     eval_lambda e
 

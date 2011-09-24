@@ -4,6 +4,8 @@
 ## Contact	db0company@gmail.com
 ##
 
+NAME	= interpretor
+
 ML	= lambdacalcul.ml
 
 MLI	= lambdacalcul.mli
