@@ -1,0 +1,12 @@
+;; This buffer is for notes you don't want to save, and for Lisp evaluation.
+;; If you want to create a file, visit that file with C-x C-f,
+;; then enter the text in that file's 
+
+(Lam x.x)2
+App(Abs("x", Var x), Const 2)
+
+	[APP]
+      /      \
+   [ABS]     [Const 2]
+  /    \
+["x"]  [Var x]

@@ -28,13 +28,21 @@ let rec getInEnv x = function
 
 let setInEnv env str e = (str, e)::env
 
+let isClosure = function
+  | Const		-> true
+  | Abs			-> true
+  | _			-> false
+
 let eval_lambda e =
   let rec aux env = function
     | Const n		-> Rconst n
     | Var x		-> aux env ( getInEnv x env)
     | Abs (str, exp)	-> Closure (str, exp, env)
-    | App (e1, e2)	-> Error ("Pas fini")
-  in aux [] e
+    | App (e1, e2)	->
+	  if isClosure e1
+	  then aux (setInEnv env e2 e1) e2
+	  else Error "Expression is not a Closure"
+in aux [] e
 
 let main () =
   let x = "x" in
