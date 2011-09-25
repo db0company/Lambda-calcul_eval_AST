@@ -55,41 +55,13 @@ let rec apply res1 res2 env = match res1 with
   | Closure (str, e, env)	-> eval_lambda (setInEnv env str (dec res2)) e
   | _				-> Error ("Expression is not a Closure")
 
-<<<<<<< HEAD
-(* 						*)
-(* val eval_lambda : env -> e -> res		*)
-(*						*)
-=======
-
 (*									     *)
 (* ## Evaluator								     *)
 (*									     *)
 
 (* val eval_lambda : env -> e -> res					     *)
->>>>>>> 5473c7b6eb7d75a09910cfcaa4b29b77371d3c5b
 and eval_lambda env = function
   | Const n		-> Rconst n
   | Var x		-> eval_lambda env (getInEnv x env)
   | Abs (str, exp)	-> Closure (str, exp, env)
   | App (e1, e2)	-> apply (eval_lambda env e1) (eval_lambda env e2) env
-
-
-(*									     *)
-(* ## Main, example of simple AST (λx.x)2				     *)
-(*									     *)
-
-let main () =
-  let e = App (Abs ("x", Var "x"), Const 2) in
-      let resultat = eval_lambda [] e in
-	match resultat with
-	  | Rconst n			-> begin
-					     print_int n;
-					     print_endline ""
-					   end
-	  | Closure (str, e, env)	-> begin
-					     print_string "Closure ";
-					     print_endline str
-					   end
-	  | Error err			-> print_endline err
-
-let _ = main ()

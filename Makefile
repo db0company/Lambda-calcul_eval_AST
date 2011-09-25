@@ -6,7 +6,8 @@
 
 NAME	= interpretor
 
-ML	= lambdacalcul.ml
+ML	= lambdacalcul.ml \
+	  main.ml
 
 MLI	= lambdacalcul.mli
 
