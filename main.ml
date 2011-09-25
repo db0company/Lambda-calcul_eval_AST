@@ -43,10 +43,16 @@ let main () =
 	    (Lambdacalcul.App
 	       ((Lambdacalcul.App
 		   (Lambdacalcul.Abs
-		      ("x",Lambdacalcul.Abs ("y",Lambdacalcul.Var "x")),
+		      ("w",Lambdacalcul.Abs ("z",Lambdacalcul.Var "w")),
 		    Lambdacalcul.Const 1), Lambdacalcul.Const 3))));
+
+    (* (λv.v)(λv.v)							     *)
+(*    show (Lambdacalcul.eval_lambda env
+	    (Lambdacalcul.App
+	       ((Lambdacalcul.Abs ("v", Lambdacalcul.Var "v")),
+		(Lambdacalcul.Abs ("v", Lambdacalcul.Var "v")))));
+*)
 
   end
 
 let _ = main ()
-
