@@ -48,7 +48,7 @@ let rec apply res1 res2 env = match res1 with
   | Closure (str, e, env)	-> eval_lambda (setInEnv env str (dec res2)) e
   | _				-> Error ("Expression is not a Closure, U MAD BRO, OH AND BTW... U JUST LOST IT *troll face*")
 
-(*						*)
+(* 						*)
 (* val eval_lambda : env -> e -> res		*)
 (*						*)
 and eval_lambda env = function

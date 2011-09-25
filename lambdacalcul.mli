@@ -22,4 +22,3 @@ val getInEnv	: string -> env	   -> e
 val setInEnv	: env	 -> string -> e		-> env
 val apply	: res	 -> res	   -> env	-> res
 val eval_lambda	: env	 -> e	   -> res
-
