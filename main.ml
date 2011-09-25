@@ -23,10 +23,10 @@ let show = function
       print_endline str
     end
   | Lambdacalcul.Error err		-> print_endline err
-    
+
 (* val main : unit -> unit						     *)
 let main () =
-  let env = [] in
+  let env = Lambdacalcul.createEnv () in
   begin
 
     (* λx.x								     *)

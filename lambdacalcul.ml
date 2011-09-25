@@ -39,9 +39,11 @@ let rec getInEnv x = function
 (* val setInEnv : env -> string -> e -> env				     *)
 let setInEnv env str e = (str, e)::env
 
+(* create an empty environement : unit -> env *)
+let createEnv () = []
 
 (*									     *)
-(* ## Details of the evaluator : deconstruction and applications functions   *)
+(* ## details of the evaluator : deconstruction and applications functions   *)
 (*									     *)
 
 (* val dec : res -> e							     *)

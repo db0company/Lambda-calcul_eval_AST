@@ -11,7 +11,10 @@ type e =
   | App		of (e * e)
   | Abs		of (string * e)
 
-type env = ((string * e) list)
+(* type env = ((string * e) list) *)
+type env
+
+val createEnv  : unit -> env
 
 type res =
   | Rconst	of int
@@ -20,5 +23,6 @@ type res =
 
 val getInEnv	: string -> env	   -> e
 val setInEnv	: env	 -> string -> e		-> env
+
 val apply	: res	 -> res	   -> env	-> res
 val eval_lambda	: env	 -> e	   -> res
